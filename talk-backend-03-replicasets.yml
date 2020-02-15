@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: ReplicaSet
+metadata:
+  name: talk-backend-yml-01
+spec:
+  replicas: 3
+  #labels:
+  #    app: talk-backend-yml-01
+  selector:
+    matchLabels:
+      app: talk-backend-yml-01
+  template:
+    metadata:
+      name: talk-backend-yml-01
+      labels:
+        app: talk-backend-yml-01
+    spec:
+      containers:
+      - image: alemoretto/talk-backend
+        imagePullPolicy: IfNotPresent
+        name: talk-backend-yml-01
+        ports:
+          - containerPort: 8080
+            protocol: TCP

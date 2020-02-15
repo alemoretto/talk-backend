@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: talk-backend-yml-01
+  labels:
+    app: talk-backend-yml-01
+spec:
+  containers:
+  - image: alemoretto/talk-backend
+    imagePullPolicy: IfNotPresent
+    name: talk-backend-yml-01
+    ports:
+    - containerPort: 8080
+      protocol: TCP
