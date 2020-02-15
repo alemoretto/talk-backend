@@ -27,19 +27,25 @@ public class RestApplicationService {
     @SneakyThrows
     @GetMapping
     public ResponseEntity<StringDto> whoareyou() {
-        log.info("Call to WHOAREYOU");
-        return ResponseEntity.ok(new StringDto("Hostname:" + InetAddress.getLocalHost().getHostName()));
+        String result = "Hostname:" + InetAddress.getLocalHost().getHostName();
+        log.info("Call to WHOAREYOU -> " + result);
+        return ResponseEntity.ok(new StringDto(result));
     }
 
     @SneakyThrows
     @GetMapping("/shutdown")
     public ResponseEntity<StringDto> shutdown() {
         counter++;
+        String result = "Shutdown tra " + (4-counter);
+
         if (counter > 3) {
+            log.info("Call to SHUTDOWN -> Shutdown !!");
             System.exit(0);
         }
 
-        return ResponseEntity.ok(new StringDto("Shutdown tra " + (4-counter)));
+        log.info("Call to SHUTDOWN -> " + result);
+
+        return ResponseEntity.ok(new StringDto(result));
     }
 
     @GetMapping("/list")
