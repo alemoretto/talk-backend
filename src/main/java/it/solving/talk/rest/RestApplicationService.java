@@ -26,6 +26,14 @@ public class RestApplicationService {
 
     @SneakyThrows
     @GetMapping
+    public ResponseEntity root() {
+        String result = "Hostname : " + InetAddress.getLocalHost().getHostName();
+        log.info("Call to ROOT -> " + result);
+        return ResponseEntity.ok(new StringDto(result));
+    }
+
+    @SneakyThrows
+    @GetMapping("/whoareyou")
     public ResponseEntity<StringDto> whoareyou() {
         String result = "Hostname:" + InetAddress.getLocalHost().getHostName();
         log.info("Call to WHOAREYOU -> " + result);
