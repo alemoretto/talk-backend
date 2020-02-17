@@ -16,7 +16,7 @@ public class TalkApplication implements CommandLineRunner {
     public static void main(String[] args) {
         SpringApplication.run(TalkApplication.class, args);
 
-        log.info(">>>>>>>>>>>>  GIIIT !!!  <<<<<<<<<<<<<<");
+        log.info(">>>>>>>>>>>>  GIT !!!  <<<<<<<<<<<<<<");
     }
 
     @Override
