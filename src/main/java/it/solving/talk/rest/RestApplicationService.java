@@ -27,16 +27,16 @@ public class RestApplicationService {
     @SneakyThrows
     @GetMapping
     public ResponseEntity root() {
-        String result = "Hostname : " + InetAddress.getLocalHost().getHostName();
-        log.info("Call to ROOT -> " + result);
+        String result = InetAddress.getLocalHost().getHostName();
+        log.info("Call to ROOT -> " + "Hostname : " + result);
         return ResponseEntity.ok(new StringDto(result));
     }
 
     @SneakyThrows
     @GetMapping("/whoareyou")
     public ResponseEntity<StringDto> whoareyou() {
-        String result = "Hostname:" + InetAddress.getLocalHost().getHostName();
-        log.info("Call to WHOAREYOU -> " + result);
+        String result = InetAddress.getLocalHost().getHostName();
+        log.info("Call to WHOAREYOU -> " + "Hostname:" + result);
         return ResponseEntity.ok(new StringDto(result));
     }
 
